@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cellular_Automaton
 {
-    internal class CellGrid
+    public class CellGrid
     {
         private Cell[,] cells;
         private CellGenerator generator;

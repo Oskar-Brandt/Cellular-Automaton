@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cellular_Automaton
 {
-    internal class CellGenerator
+    public class CellGenerator
     {
         private Pattern[] patterns;
 

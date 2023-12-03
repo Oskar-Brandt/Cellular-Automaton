@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cellular_Automaton
 {
-    internal class Pattern
+    public class Pattern
     {
         public bool LeftPos { get; set; }
         public bool TargetPos { get; set; }
