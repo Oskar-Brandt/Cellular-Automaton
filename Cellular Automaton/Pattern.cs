@@ -8,5 +8,20 @@ namespace Cellular_Automaton
 {
     internal class Pattern
     {
+        public bool LeftPos { get; set; }
+        public bool TargetPos { get; set; }
+        public bool RightPos { get; set; }
+        public bool NewCellActivated { get; set; }
+
+        public Pattern(bool leftPos, bool targetPos, bool rightPos, bool newCellActivated = false)
+        {
+            LeftPos = leftPos;
+            TargetPos = targetPos;
+            RightPos = rightPos;
+            NewCellActivated = newCellActivated;
+
+        }
     }
 }
+
+        

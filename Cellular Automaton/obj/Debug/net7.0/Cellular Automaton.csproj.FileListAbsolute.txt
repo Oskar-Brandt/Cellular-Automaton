@@ -1,0 +1,15 @@
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\bin\Debug\net7.0\Cellular Automaton.exe
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\bin\Debug\net7.0\Cellular Automaton.deps.json
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\bin\Debug\net7.0\Cellular Automaton.runtimeconfig.json
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\bin\Debug\net7.0\Cellular Automaton.dll
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\bin\Debug\net7.0\Cellular Automaton.pdb
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\obj\Debug\net7.0\Cellular Automaton.csproj.AssemblyReference.cache
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\obj\Debug\net7.0\Cellular Automaton.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\obj\Debug\net7.0\Cellular Automaton.AssemblyInfoInputs.cache
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\obj\Debug\net7.0\Cellular Automaton.AssemblyInfo.cs
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\obj\Debug\net7.0\Cellular Automaton.csproj.CoreCompileInputs.cache
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\obj\Debug\net7.0\Cellular Automaton.dll
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\obj\Debug\net7.0\refint\Cellular Automaton.dll
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\obj\Debug\net7.0\Cellular Automaton.pdb
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\obj\Debug\net7.0\Cellular Automaton.genruntimeconfig.cache
+C:\Users\oskar\source\repos\Cellular-Automaton\Cellular Automaton\obj\Debug\net7.0\ref\Cellular Automaton.dll
