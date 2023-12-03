@@ -1,8 +1,7 @@
-﻿
-using Cellular_Automaton;
-using Cellular_Automaton_GUI;
+﻿// See https://aka.ms/new-console-template for more information
 
-MainWindow window = new MainWindow();
+using Cellular_Automaton;
+
 CellGrid cellGrid = new CellGrid();
 
 cellGrid.generate();

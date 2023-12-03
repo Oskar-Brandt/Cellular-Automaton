@@ -1,18 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "p+fpbZxbwYJpwPF7dnjKgqnsTRNilhke8MkuNmED56QHjwABnilCMQOgpSwQ8xxVT89E1fiiRWR3tAmLW+a2gw==",
-  "success": false,
+  "dgSpecHash": "R2SNDRbbrRKyc6Z4bOMTfYuWyDzw0u7UNfJPztFzhEkclyOHWxwB/xIgeh8jCNgZDNum1BR0Vds33Pn4/biKZQ==",
+  "success": true,
   "projectFilePath": "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1201",
-      "level": "Error",
-      "message": "Project Cellular Automaton GUI is not compatible with net7.0 (.NETCoreApp,Version=v7.0). Project Cellular Automaton GUI supports: net7.0-windows7.0 (.NETCoreApp,Version=v7.0)",
-      "libraryId": "Cellular Automaton GUI",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  "logs": []
 }
