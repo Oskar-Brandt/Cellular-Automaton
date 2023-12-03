@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "Cellular Automaton GUI/1.0.0": {
+        "type": "project",
+        "framework": "Unsupported,Version=v0.0",
+        "compile": {
+          "bin/placeholder/Cellular Automaton GUI.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cellular Automaton GUI.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Cellular Automaton GUI/1.0.0": {
+      "type": "project",
+      "path": "../Cellular Automaton GUI/Cellular Automaton GUI.csproj",
+      "msbuildProject": "../Cellular Automaton GUI/Cellular Automaton GUI.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "Cellular Automaton GUI >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\oskar\\.nuget\\packages\\": {},
@@ -39,7 +58,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular Automaton GUI\\Cellular Automaton GUI.csproj": {
+              "projectPath": "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular Automaton GUI\\Cellular Automaton GUI.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -70,5 +93,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project Cellular Automaton GUI is not compatible with net7.0 (.NETCoreApp,Version=v7.0). Project Cellular Automaton GUI supports: net7.0-windows7.0 (.NETCoreApp,Version=v7.0)",
+      "libraryId": "Cellular Automaton GUI",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }
