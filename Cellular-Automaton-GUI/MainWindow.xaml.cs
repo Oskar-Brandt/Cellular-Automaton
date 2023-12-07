@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Cellular_Automaton;
 
 namespace Cellular_Automaton_GUI
 {
@@ -20,14 +21,23 @@ namespace Cellular_Automaton_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CellGrid cellGrid;
         public MainWindow()
         {
             InitializeComponent();
+            cellGrid = new CellGrid();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            List<State> states = cellGrid.generate();
+            
         }
     }
 }

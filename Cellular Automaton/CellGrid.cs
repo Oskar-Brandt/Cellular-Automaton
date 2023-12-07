@@ -10,12 +10,17 @@ namespace Cellular_Automaton
     {
         private Cell[,] cells;
         private CellGenerator generator;
+        public List<State> states;
 
         public CellGrid()
         {
             cells = new Cell[10, 10];
             generator = new CellGenerator();
-            
+            states = new List<State>();
+        }
+
+        public List<State> generate()
+        {
             for (int i = 0; i < cells.GetLength(1); i++)
             {
                 if (i == 3 || i == 7)
@@ -27,48 +32,26 @@ namespace Cellular_Automaton
                     cells[0, i] = new Cell(false);
                 }
             }
-        }
+            saveState();
 
-        public void generate()
-        {
-            for (int i = 0; i < cells.GetLength(0) - 2; i++)
+            for (int i = 0; i < cells.GetLength(0) - 1; i++)
             {
                 for(int j = 0; j < cells.GetLength(1); j++)
                 {
                     Cell newCell = generator.generateNewCell(cells[i, j], cells, i, j);
                     cells[i + 1, j] = newCell;
                 }
-                showUpdatedGrid();
+                saveState();
+                //showUpdatedGrid();
             }
+            List<State> currentStates = states;
+            return currentStates;
         }
 
-        private void showUpdatedGrid()
+        private void saveState()
         {
-            Console.WriteLine();
-            int i = 0;
-            foreach (Cell cell in cells)
-            {
-                string binary;
-                if(cell == null)
-                {
-                    binary = "0";
-                }
-                else
-                {
-                    binary = cell.ToString();
-                }
-
-                Console.Write($"| {binary} |");
-                i++;
-                if (i == 10)
-                {
-                    Console.WriteLine();
-                    i = 0;
-                }
-            }
-            Console.WriteLine();
-            Console.ReadKey();
-
+            State currentState = new State(cells);
+            states.Add(currentState);
         }
     }
 }

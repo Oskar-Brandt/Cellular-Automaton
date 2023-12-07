@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cellular_Automaton_GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <DataGrid d:ItemsSource="{d:SampleData ItemCount=9}" Margin="273,112,144,70" Width="NaN" Height="NaN"/>
+        Title="MainWindow" Height="421" Width="810">
+    <Button Content="Button" HorizontalAlignment="Left" Margin="63,164,0,0" VerticalAlignment="Top" Height="46" Width="76" Click="Button_Click"/>
 </Window>
