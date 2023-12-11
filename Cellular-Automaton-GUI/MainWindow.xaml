@@ -5,6 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cellular_Automaton_GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="421" Width="810">
-    <Button Content="Button" HorizontalAlignment="Left" Margin="63,164,0,0" VerticalAlignment="Top" Height="46" Width="76" Click="Button_Click"/>
+        Title="MainWindow" Height="414" Width="741">
+    <DataGrid Name="DG1" AutoGenerateColumns="False" ItemsSource="{Binding Rows}" Margin="152,50,152,50">
+        <DataGrid.Columns>
+        </DataGrid.Columns>
+    </DataGrid>
 </Window>

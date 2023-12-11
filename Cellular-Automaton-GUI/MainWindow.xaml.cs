@@ -21,11 +21,27 @@ namespace Cellular_Automaton_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Cell[,] cells;
+        private int numRows;
+        private int numColumns;
+
         private CellGrid cellGrid;
+        private GridRow[] rows;
         public MainWindow()
         {
             InitializeComponent();
             cellGrid = new CellGrid();
+            
+            cells = cellGrid.Cells;
+            numRows = cells.GetLength(0);
+            numColumns = cells.GetLength(1);
+
+            rows = new GridRow[numRows];
+
+            addColumns();
+            addRows();
+            
+
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -38,6 +54,30 @@ namespace Cellular_Automaton_GUI
 
             List<State> states = cellGrid.generate();
             
+        }
+
+
+        private void addColumns()
+        {
+            for (int i = 0; i < numColumns; i++)
+            {
+                var column = new DataGridCheckBoxColumn
+                {
+                    Header = $"Column {i + 1}",
+                    Binding = new Binding($"Column{i}")
+                };
+                DG1.Columns.Add(column);
+            }
+        }
+
+        private void addRows()
+        {
+            for(int i = 0; i < numRows; i++)
+            {
+                GridRow row = new GridRow(i, cells);
+                rows[i] = row;
+            }
+            DG1.ItemsSource = rows;
         }
     }
 }
