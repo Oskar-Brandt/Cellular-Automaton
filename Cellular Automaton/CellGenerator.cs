@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cellular_Automaton
 {
-    internal class CellGenerator
+    public class CellGenerator
     {
         private Pattern[] patterns;
 
@@ -35,7 +35,7 @@ namespace Cellular_Automaton
 
             if (col == 0)
             {
-                leftCell = cells[row,8];
+                leftCell = cells[row,9];
             }
             else
             {

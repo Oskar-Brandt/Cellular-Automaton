@@ -6,69 +6,51 @@ using System.Threading.Tasks;
 
 namespace Cellular_Automaton
 {
-    internal class CellGrid
+    public class CellGrid
     {
-        private Cell[,] cells;
+        public Cell[,] Cells { get; set; }
         private CellGenerator generator;
+        public List<State> states;
 
         public CellGrid()
         {
-            cells = new Cell[10, 10];
+            Cells = new Cell[10, 10];
             generator = new CellGenerator();
-            
-            for (int i = 0; i < cells.GetLength(1); i++)
+            states = new List<State>();
+        }
+
+        public List<State> generate()
+        {
+            for (int i = 0; i < Cells.GetLength(1); i++)
             {
                 if (i == 3 || i == 7)
                 {
-                    cells[0, i] = new Cell(true);
+                    Cells[0, i] = new Cell(true);
                 }
                 else
                 {
-                    cells[0, i] = new Cell(false);
+                    Cells[0, i] = new Cell(false);
                 }
             }
+            saveState();
+
+            for (int i = 0; i < Cells.GetLength(0) - 1; i++)
+            {
+                for(int j = 0; j < Cells.GetLength(1); j++)
+                {
+                    Cell newCell = generator.generateNewCell(Cells[i, j], Cells, i, j);
+                    Cells[i + 1, j] = newCell;
+                }
+                saveState();
+            }
+            List<State> currentStates = states;
+            return currentStates;
         }
 
-        public void generate()
+        private void saveState()
         {
-            for (int i = 0; i < cells.GetLength(0) - 2; i++)
-            {
-                for(int j = 0; j < cells.GetLength(1); j++)
-                {
-                    Cell newCell = generator.generateNewCell(cells[i, j], cells, i, j);
-                    cells[i + 1, j] = newCell;
-                }
-                showUpdatedGrid();
-            }
-        }
-
-        private void showUpdatedGrid()
-        {
-            Console.WriteLine();
-            int i = 0;
-            foreach (Cell cell in cells)
-            {
-                string binary;
-                if(cell == null)
-                {
-                    binary = "0";
-                }
-                else
-                {
-                    binary = cell.ToString();
-                }
-
-                Console.Write($"| {binary} |");
-                i++;
-                if (i == 10)
-                {
-                    Console.WriteLine();
-                    i = 0;
-                }
-            }
-            Console.WriteLine();
-            Console.ReadKey();
-
+            State currentState = new State(Cells);
+            states.Add(currentState);
         }
     }
 }

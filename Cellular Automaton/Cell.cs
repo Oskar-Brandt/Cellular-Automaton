@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cellular_Automaton
 {
-    internal class Cell
+    public class Cell
     {
         public bool Activated { get; set; }
 

@@ -1,0 +1,33 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Cellular-Automaton-GUI/1.0.0": {
+        "runtime": {
+          "Cellular-Automaton-GUI.dll": {}
+        }
+      },
+      "Cellular Automaton/1.0.0": {
+        "runtime": {
+          "Cellular Automaton.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Cellular-Automaton-GUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Cellular Automaton/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
