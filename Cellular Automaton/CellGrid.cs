@@ -42,7 +42,6 @@ namespace Cellular_Automaton
                     Cells[i + 1, j] = newCell;
                 }
                 saveState();
-                //showUpdatedGrid();
             }
             List<State> currentStates = states;
             return currentStates;

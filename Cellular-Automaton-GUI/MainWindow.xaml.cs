@@ -22,15 +22,18 @@ namespace Cellular_Automaton_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CellGrid cellGrid;
+
         private Cell[,] cells;
+
         private List<State> stateList;
         private State[] states;
+        private State currentState;
+
         private int currentStateIndex;
         private int numRows;
         private int numColumns;
 
-        private CellGrid cellGrid;
-        private GridRow[] rows;
         public MainWindow()
         {
             InitializeComponent();
@@ -38,63 +41,20 @@ namespace Cellular_Automaton_GUI
             stateList = cellGrid.generate();
             
             states = stateList.ToArray();
-            State state = states[0];
+            State currentState = states[0];
             currentStateIndex = 0;
-            cells = state.Cells;
+            cells = currentState.Cells;
+
             numRows = cells.GetLength(0);
             numColumns = cells.GetLength(1);
 
-            rows = new GridRow[numRows];
-
-            addColumns();
-            addRows();
-
-            DrawRectangles();
-
-
-
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-            List<State> states = cellGrid.generate();
-            
+            DrawCells();
         }
 
 
-        private void addColumns()
+        private void DrawCells()
         {
-            for (int i = 0; i < numColumns; i++)
-            {
-                var column = new DataGridCheckBoxColumn
-                {
-                    Header = $"Column {i + 1}",
-                    Binding = new Binding($"Column{i}")
-                };
-                //DG1.Columns.Add(column);
-                
-            }
-        }
-
-        private void addRows()
-        {
-            for(int i = 0; i < numRows; i++)
-            {
-                GridRow row = new GridRow(i, cells);
-                rows[i] = row;
-            }
-            //DG1.ItemsSource = rows;
-        }
-
-        private void DrawRectangles()
-        {
-            int rectSize = 25; // Size of each rectangle
+            int rectSize = 25; 
 
             for (int row = 0; row < numRows; row++)
             {
@@ -104,7 +64,7 @@ namespace Cellular_Automaton_GUI
                     {
                         Width = rectSize,
                         Height = rectSize,
-                        Stroke = Brushes.Gray // Set the border color of the rectangle
+                        Stroke = Brushes.Gray 
                     };
                     if (cells[row,col] is null || !cells[row, col].Activated)
                     {
@@ -124,17 +84,16 @@ namespace Cellular_Automaton_GUI
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if(currentStateIndex == stateList.Count - 1)
+            if (currentStateIndex == stateList.Count - 1)
             {
-
+                //If final state has been drawn, button does nothing
             }
             else
             {
                 currentStateIndex++;
-                State state;
-                state = states[currentStateIndex];
-                cells = state.Cells;
-                DrawRectangles();
+                currentState = states[currentStateIndex];
+                cells = currentState.Cells;
+                DrawCells();
             }
             
         }
