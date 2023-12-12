@@ -35,7 +35,7 @@ namespace Cellular_Automaton
 
             if (col == 0)
             {
-                leftCell = cells[row,8];
+                leftCell = cells[row,9];
             }
             else
             {

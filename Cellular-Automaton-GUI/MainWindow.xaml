@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:Cellular_Automaton_GUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="414" Width="741">
-    <DataGrid Name="DG1" AutoGenerateColumns="False" ItemsSource="{Binding Rows}" Margin="152,50,152,50">
-        <DataGrid.Columns>
-        </DataGrid.Columns>
-    </DataGrid>
+    <Canvas Margin="385,72,54,56" Name="CanvasGrid">
+        <Button Content="Generate" Canvas.Left="-278" Canvas.Top="121" Click="Button_Click_1"/>
+    </Canvas>
 </Window>
