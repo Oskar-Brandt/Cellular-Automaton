@@ -39,6 +39,29 @@ namespace Cellular_Automaton
         public State generateNextState(State currentState)
         {
             State nextState = null;
+            Cell[,] cells = currentState.Cells;
+            int liveNeighbours = 0;
+            
+
+            for(int i = 0; i < cells.GetLength(0);i++)
+            {
+                for(int j = 0; j < cells.GetLength(1); j++)
+                {
+                    bool isCurrentCellActive = cells[i,j].Activated;
+
+                    if(i != 0)
+                    {
+                        if (cells[i - 1, j].Activated)
+                        {
+                            liveNeighbours++;
+                        }
+                    }
+
+                    if(i != cells.)
+
+                }
+            }
+
 
             return nextState;
         }
