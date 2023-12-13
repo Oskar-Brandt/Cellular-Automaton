@@ -21,13 +21,13 @@ namespace Cellular_Automaton
             for (int i = 0; i < cellsActivated; i++)
             {
                 
-                int row = rand.Next(0, 10);
-                int col = rand.Next(0, 10);
+                int row = rand.Next(0, cells.GetLength(0));
+                int col = rand.Next(0, cells.GetLength(1));
 
                 while (cells[row, col].Activated)
                 {
-                    row = rand.Next(0, 10);
-                    col = rand.Next(0, 10);
+                    row = rand.Next(0, cells.GetLength(0));
+                    col = rand.Next(0, cells.GetLength(1));
                 }
                 cells[row, col].Activated = true;
             }
@@ -38,32 +38,130 @@ namespace Cellular_Automaton
 
         public State generateNextState(State currentState)
         {
-            State nextState = null;
-            Cell[,] cells = currentState.Cells;
-            int liveNeighbours = 0;
+            State nextState = new State(currentState.Cells);
+
+            Cell[,] currentCells = currentState.Cells;
+            Cell[,] nextStateCells = nextState.Cells;
+
+            
             
 
-            for(int i = 0; i < cells.GetLength(0);i++)
+            for(int i = 0; i < currentCells.GetLength(0);i++)
             {
-                for(int j = 0; j < cells.GetLength(1); j++)
+                for(int j = 0; j < currentCells.GetLength(1); j++)
                 {
-                    bool isCurrentCellActive = cells[i,j].Activated;
+                    bool isCurrentCellActive = currentCells[i,j].Activated;
+                    int activeNeighbours = 0;
 
-                    if(i != 0)
+                    if (i != 0)
                     {
-                        if (cells[i - 1, j].Activated)
+                        if (currentCells[i - 1, j].Activated)
                         {
-                            liveNeighbours++;
+                            activeNeighbours++;
+                        }
+
+                        if (j != 0)
+                        {
+                            if (currentCells[i - 1, j - 1].Activated)
+                            {
+                                activeNeighbours++;
+                            }
+                        }
+
+                        if (j != currentCells.GetLength(1) - 1)
+                        {
+                            if (currentCells[i - 1, j + 1].Activated)
+                            {
+                                activeNeighbours++;
+                            }
+                        }
+
+                    }
+
+
+
+
+                    if(i != currentCells.GetLength(0) - 1)
+                    {
+                        if (currentCells[i + 1, j].Activated)
+                        {
+                            activeNeighbours++;
+                        }
+
+                        if (j != 0)
+                        {
+                            if (currentCells[i + 1, j - 1].Activated)
+                            {
+                                activeNeighbours++;
+                            }
+                        }
+
+                        if (j != currentCells.GetLength(1) - 1)
+                        {
+                            if (currentCells[i + 1, j + 1].Activated)
+                            {
+                                activeNeighbours++;
+                            }
                         }
                     }
 
-                    if(i != cells.)
 
+                    if(j != 0)
+                    {
+                        if (currentCells[i, j - 1].Activated)
+                        {
+                            activeNeighbours++;
+                        }
+
+
+                    }
+
+
+
+                    if(j != currentCells.GetLength(1) - 1)
+                    {
+                        if (currentCells[i, j + 1].Activated)
+                        {
+                            activeNeighbours++;
+                        }
+                    }
+
+                    bool currentCellNextState = patternChecker(isCurrentCellActive, activeNeighbours);
+
+                    nextStateCells[i, j].Activated = currentCellNextState;
                 }
             }
 
-
             return nextState;
+        }
+
+        public bool patternChecker(bool isCellActive, int activeNeighbours)
+        {
+            if (isCellActive)
+            {
+                if (activeNeighbours < 2)
+                {
+                    return false;
+                }
+
+                if (activeNeighbours <= 3)
+                {
+                    return true;
+                }
+
+                if(activeNeighbours > 3)
+                {
+                    return false;
+                }
+            }
+
+            else if (activeNeighbours == 3)
+            {
+                return true;
+            }
+
+            return false;
+            
         }
     }
 }

@@ -27,23 +27,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Oskar\\.nuget\\packages\\": {},
+    "C:\\Users\\oskar\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Oskar\\Desktop\\Cellular-Automaton\\Cellular-Automaton-GUI\\Cellular-Automaton-GUI.csproj",
+      "projectUniqueName": "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular-Automaton-GUI\\Cellular-Automaton-GUI.csproj",
       "projectName": "Cellular-Automaton-GUI",
-      "projectPath": "C:\\Users\\Oskar\\Desktop\\Cellular-Automaton\\Cellular-Automaton-GUI\\Cellular-Automaton-GUI.csproj",
-      "packagesPath": "C:\\Users\\Oskar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Oskar\\Desktop\\Cellular-Automaton\\Cellular-Automaton-GUI\\obj\\",
+      "projectPath": "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular-Automaton-GUI\\Cellular-Automaton-GUI.csproj",
+      "packagesPath": "C:\\Users\\oskar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular-Automaton-GUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Oskar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\oskar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -59,8 +59,8 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "projectReferences": {
-            "C:\\Users\\Oskar\\Desktop\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj": {
-              "projectPath": "C:\\Users\\Oskar\\Desktop\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj"
+            "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj": {
+              "projectPath": "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj"
             }
           }
         }

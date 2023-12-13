@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cellular_Automaton_GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="414" Width="741">
-    <Canvas Margin="385,72,54,56" Name="CanvasGrid">
-        <Button Content="Generate" Canvas.Left="-278" Canvas.Top="121" Click="Button_Click_1"/>
+        Title="MainWindow" Height="680" Width="1011">
+    <Canvas Margin="235,10,199,50" Name="CanvasGrid">
+        <Button Content="Generate" Canvas.Left="126" Canvas.Top="584" Click="Button_Click_1" RenderTransformOrigin="0.56,0.587" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Content="Generate FAST" Height="20" Canvas.Left="395" Canvas.Top="589" Width="85" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click"/>
     </Canvas>
 </Window>

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -26,35 +28,26 @@ namespace Cellular_Automaton_GUI
 
         private Cell[,] cells;
 
-        private List<State> stateList;
-        private State[] states;
         private State currentState;
+        private List<State> states;
 
-        private int currentStateIndex;
         private int numRows;
         private int numColumns;
 
         public MainWindow()
         {
             InitializeComponent();
-            cellGrid = new CellGrid();
-            stateList = cellGrid.generate();
+            cellGrid = new CellGrid(25, 25, 75);
+            states = new List<State>();
+
+            beginNewState(cellGrid.InitState);
             
-            states = stateList.ToArray();
-            State currentState = states[0];
-            currentStateIndex = 0;
-            cells = currentState.Cells;
-
-            numRows = cells.GetLength(0);
-            numColumns = cells.GetLength(1);
-
-            DrawCells();
         }
 
 
         private void DrawCells()
         {
-            int rectSize = 25; 
+            int rectSize = 22; 
 
             for (int row = 0; row < numRows; row++)
             {
@@ -66,13 +59,13 @@ namespace Cellular_Automaton_GUI
                         Height = rectSize,
                         Stroke = Brushes.Gray 
                     };
-                    if (cells[row,col] is null || !cells[row, col].Activated)
+                    if (cells[row, col].Activated)
                     {
-                        rect.Fill = Brushes.White;
+                        rect.Fill = Brushes.Black;
                     }
                     else
                     {
-                        rect.Fill = Brushes.Black;
+                        rect.Fill = Brushes.White;
                     }
 
                     Canvas.SetLeft(rect, col * rectSize);
@@ -82,20 +75,33 @@ namespace Cellular_Automaton_GUI
             }
         }
 
+        private void beginNewState(State newState)
+        {
+            currentState = newState;
+            cells = newState.Cells;
+            states.Add(newState);
+
+            numRows = cells.GetLength(0);
+            numColumns = cells.GetLength(1);
+
+            DrawCells();
+        }
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (currentStateIndex == stateList.Count - 1)
+            State nextState = cellGrid.generateNextState(currentState);
+
+            beginNewState(nextState);
+
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            for(int i = 0;  i < 100; i++)
             {
-                //If final state has been drawn, button does nothing
+                Button_Click_1(sender, e);
+                await Task.Delay(240);
             }
-            else
-            {
-                currentStateIndex++;
-                currentState = states[currentStateIndex];
-                cells = currentState.Cells;
-                DrawCells();
-            }
-            
         }
     }
 }

@@ -9,23 +9,18 @@ namespace Cellular_Automaton
     public class CellGrid
     {
         public Cell[,] Cells { get; set; }
-        public List<State> states; //Used to display the number of states completed
-        public State currentState { get; set; } //This may be used to display the cells, instead of using the Cells 2d array each time
-        public StateChanger stateChanger { get; set; }
+        public State InitState { get; set; } //This may be used to display the cells, instead of using the Cells 2d array each time
+        public StateChanger StateChanger { get; set; }
 
         public CellGrid(int gridHeight, int gridWidth, int initialActivations)
         {
             Cells = new Cell[gridHeight, gridWidth];
-            states = new List<State>();
-            stateChanger = new StateChanger();
-
+            StateChanger = new StateChanger();
 
             generateCells(Cells.GetLength(0), Cells.GetLength(1));
 
-            State initState = setInitialActivations(initialActivations);
+            InitState = setInitialActivations(initialActivations);
 
-            currentState = initState;
-            states.Append(currentState);
 
         }
 
@@ -35,7 +30,7 @@ namespace Cellular_Automaton
         //Activation status of the cells will then be set some other place.
         private void generateCells(int gridHeight, int gridWidth)
         {
-            for( int i = 0;i < gridHeight; i++)
+            for(int i = 0;i < gridHeight; i++)
             {
                 for(int j=0; j < gridWidth; j++)
                 {
@@ -52,7 +47,7 @@ namespace Cellular_Automaton
         {
             State initState;
 
-            initState = stateChanger.setInitialState(Cells, cellsActivated);
+            initState = StateChanger.setInitialState(Cells, cellsActivated);
             
             return initState;
         }
@@ -62,14 +57,11 @@ namespace Cellular_Automaton
         //Should be called each time a new state is needed for the grid
         //Should check every cell, and change its activation status if needed
         //Should probably use CellGenerator (Or a new class), which then uses some kind of pattern (New class may be needed for this too)
-        public State generateNextState()
+        public State generateNextState(State currentState)
         {
             State nextState;
 
-            nextState = stateChanger.generateNextState(currentState);
-
-            currentState = nextState;
-            states.Append(currentState);
+            nextState = StateChanger.generateNextState(currentState);
 
             return nextState;
         }

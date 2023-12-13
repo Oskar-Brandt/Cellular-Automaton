@@ -11,7 +11,7 @@ namespace Cellular_Automaton
     {
         public bool Activated { get; set; }
 
-        public Cell(bool activated = "False") {
+        public Cell(bool activated = false) {
             Activated = activated;
 
         }
@@ -28,6 +28,11 @@ namespace Cellular_Automaton
                 boolValue = 0;
             }
             return boolValue.ToString();
+        }
+
+        public Cell Copy()
+        {
+            return new Cell(Activated);
         }
     }
 }

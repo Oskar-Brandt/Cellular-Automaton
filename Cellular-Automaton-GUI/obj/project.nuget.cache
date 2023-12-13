@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T0SB6HIOUix3EQLXn1O01ui4fDEM+0y7wT/BDXFPJkMwpb5F2RzoL5Fske1LgrO/UXouMB9QThAxBefEoOjxGQ==",
+  "dgSpecHash": "cCREDha+7jvcBCbq5C1eGTvWSINAVnQsG1AXIQ4rn/80gv/4W0F/WWNIXy65Y12vCWBIdykcSCOIZPym2Xd71Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Oskar\\Desktop\\Cellular-Automaton\\Cellular-Automaton-GUI\\Cellular-Automaton-GUI.csproj",
+  "projectFilePath": "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular-Automaton-GUI\\Cellular-Automaton-GUI.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

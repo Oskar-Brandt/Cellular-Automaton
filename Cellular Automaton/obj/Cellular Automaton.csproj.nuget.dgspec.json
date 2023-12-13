@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Oskar\\Desktop\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj": {}
+    "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Oskar\\Desktop\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj": {
+    "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Oskar\\Desktop\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj",
+        "projectUniqueName": "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj",
         "projectName": "Cellular Automaton",
-        "projectPath": "C:\\Users\\Oskar\\Desktop\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj",
-        "packagesPath": "C:\\Users\\Oskar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Oskar\\Desktop\\Cellular-Automaton\\Cellular Automaton\\obj\\",
+        "projectPath": "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular Automaton\\Cellular Automaton.csproj",
+        "packagesPath": "C:\\Users\\oskar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\oskar\\source\\repos\\Cellular-Automaton\\Cellular Automaton\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Oskar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oskar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
