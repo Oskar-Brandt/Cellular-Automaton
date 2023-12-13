@@ -11,7 +11,7 @@ namespace Cellular_Automaton
     {
         public bool Activated { get; set; }
 
-        public Cell(bool activated) {
+        public Cell(bool activated = "False") {
             Activated = activated;
 
         }
