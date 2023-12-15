@@ -9,7 +9,7 @@ namespace Cellular_Automaton
     public class CellGrid
     {
         public Cell[,] Cells { get; set; }
-        public State InitState { get; set; } //This may be used to display the cells, instead of using the Cells 2d array each time
+        public State InitState { get; set; }
         public StateChanger StateChanger { get; set; }
 
         public CellGrid(int gridHeight, int gridWidth, int initialActivations)

@@ -37,7 +37,7 @@ namespace Cellular_Automaton_GUI
         public MainWindow()
         {
             InitializeComponent();
-            cellGrid = new CellGrid(25, 25, 75);
+            setGrid(25, 25, 75);
             states = new List<State>();
 
             beginNewState(cellGrid.InitState);
@@ -47,6 +47,7 @@ namespace Cellular_Automaton_GUI
 
         private void DrawCells()
         {
+            CanvasGrid.Children.Clear();
             int rectSize = 22; 
 
             for (int row = 0; row < numRows; row++)
@@ -67,7 +68,7 @@ namespace Cellular_Automaton_GUI
                     {
                         rect.Fill = Brushes.White;
                     }
-
+                    
                     Canvas.SetLeft(rect, col * rectSize);
                     Canvas.SetTop(rect, row * rectSize);
                     CanvasGrid.Children.Add(rect);
@@ -77,6 +78,7 @@ namespace Cellular_Automaton_GUI
 
         private void beginNewState(State newState)
         {
+            
             currentState = newState;
             cells = newState.Cells;
             states.Add(newState);
@@ -85,6 +87,17 @@ namespace Cellular_Automaton_GUI
             numColumns = cells.GetLength(1);
 
             DrawCells();
+        }
+
+        private void reset()
+        {
+            states = new List<State>();
+            beginNewState(cellGrid.InitState);
+        }
+
+        private void setGrid(int gridHeight, int gridWidth, int initActivations)
+        {
+            cellGrid = new CellGrid(gridHeight, gridWidth, initActivations);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -102,6 +115,25 @@ namespace Cellular_Automaton_GUI
                 Button_Click_1(sender, e);
                 await Task.Delay(240);
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            reset();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            setGrid(int.Parse(newHeight.Text), int.Parse(newWidth.Text), int.Parse(newActivations.Text));
+
+            reset();
+
+
         }
     }
 }

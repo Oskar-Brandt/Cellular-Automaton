@@ -5,9 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cellular_Automaton_GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="680" Width="1011">
-    <Canvas Margin="235,10,199,50" Name="CanvasGrid">
-        <Button Content="Generate" Canvas.Left="126" Canvas.Top="584" Click="Button_Click_1" RenderTransformOrigin="0.56,0.587" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="Generate FAST" Height="20" Canvas.Left="395" Canvas.Top="589" Width="85" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click"/>
+        Title="MainWindow" Height="693" Width="1176">
+    <Canvas Margin="10,24,23,15">
+        <Button Content="Generate" Canvas.Left="572" Canvas.Top="584" Click="Button_Click_1" RenderTransformOrigin="0.56,0.587" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button Content="Generate FAST" Height="20" Canvas.Left="695" Canvas.Top="584" Width="85" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Button_Click"/>
+        <Button Content="Reset" Canvas.Left="149" Canvas.Top="433" Height="37" Width="131" Click="Button_Click_2"/>
+        <Button x:Name="changeButton" Content="Change and reload" Canvas.Left="111" Canvas.Top="285" Height="47" Width="132" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_3"/>
+        <TextBox x:Name="newHeight" Canvas.Left="63" TextWrapping="Wrap" Text="New grid height" Canvas.Top="168" Width="106" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31"/>
+        <TextBox x:Name="newWidth" Canvas.Left="193" TextWrapping="Wrap" Text="New grid Width" Canvas.Top="168" Width="101" Height="31" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="newActivations" Canvas.Left="126" TextWrapping="Wrap" Text="New initial activations" Canvas.Top="225" Width="154" Height="36" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Canvas Name="CanvasGrid" Height="540" Canvas.Left="344" Canvas.Top="10" Width="746"/>
     </Canvas>
 </Window>
