@@ -13,13 +13,15 @@ namespace Cellular_Automaton
 
         public State(Cell[,] currentCells)
         {
-            try
+           Cells = new Cell[currentCells.GetLength(0), currentCells.GetLength(1)];
+
+           for (int i = 0; i < currentCells.GetLength(0); i++)
             {
-                Object cells = currentCells.Clone();
-                Cells = (Cell[,])cells;
+                for (int j = 0; j < currentCells.GetLength(1); j++)
+                {
+                    Cells[i,j] = currentCells[i, j].Copy();
+                }
             }
-            catch { }
-            
         }
     }
 }

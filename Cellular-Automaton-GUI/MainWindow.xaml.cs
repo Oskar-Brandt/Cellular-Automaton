@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -26,35 +28,27 @@ namespace Cellular_Automaton_GUI
 
         private Cell[,] cells;
 
-        private List<State> stateList;
-        private State[] states;
         private State currentState;
+        private List<State> states;
 
-        private int currentStateIndex;
         private int numRows;
         private int numColumns;
 
         public MainWindow()
         {
             InitializeComponent();
-            cellGrid = new CellGrid();
-            stateList = cellGrid.generate();
+            setGrid(25, 25, 75);
+            states = new List<State>();
+
+            beginNewState(cellGrid.InitState);
             
-            states = stateList.ToArray();
-            State currentState = states[0];
-            currentStateIndex = 0;
-            cells = currentState.Cells;
-
-            numRows = cells.GetLength(0);
-            numColumns = cells.GetLength(1);
-
-            DrawCells();
         }
 
 
         private void DrawCells()
         {
-            int rectSize = 25; 
+            CanvasGrid.Children.Clear();
+            int rectSize = 22; 
 
             for (int row = 0; row < numRows; row++)
             {
@@ -66,15 +60,15 @@ namespace Cellular_Automaton_GUI
                         Height = rectSize,
                         Stroke = Brushes.Gray 
                     };
-                    if (cells[row,col] is null || !cells[row, col].Activated)
-                    {
-                        rect.Fill = Brushes.White;
-                    }
-                    else
+                    if (cells[row, col].Activated)
                     {
                         rect.Fill = Brushes.Black;
                     }
-
+                    else
+                    {
+                        rect.Fill = Brushes.White;
+                    }
+                    
                     Canvas.SetLeft(rect, col * rectSize);
                     Canvas.SetTop(rect, row * rectSize);
                     CanvasGrid.Children.Add(rect);
@@ -82,20 +76,64 @@ namespace Cellular_Automaton_GUI
             }
         }
 
+        private void beginNewState(State newState)
+        {
+            
+            currentState = newState;
+            cells = newState.Cells;
+            states.Add(newState);
+
+            numRows = cells.GetLength(0);
+            numColumns = cells.GetLength(1);
+
+            DrawCells();
+        }
+
+        private void reset()
+        {
+            states = new List<State>();
+            beginNewState(cellGrid.InitState);
+        }
+
+        private void setGrid(int gridHeight, int gridWidth, int initActivations)
+        {
+            cellGrid = new CellGrid(gridHeight, gridWidth, initActivations);
+        }
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (currentStateIndex == stateList.Count - 1)
+            State nextState = cellGrid.generateNextState(currentState);
+
+            beginNewState(nextState);
+
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            for(int i = 0;  i < 100; i++)
             {
-                //If final state has been drawn, button does nothing
+                Button_Click_1(sender, e);
+                await Task.Delay(240);
             }
-            else
-            {
-                currentStateIndex++;
-                currentState = states[currentStateIndex];
-                cells = currentState.Cells;
-                DrawCells();
-            }
-            
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            reset();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            setGrid(int.Parse(newHeight.Text), int.Parse(newWidth.Text), int.Parse(newActivations.Text));
+
+            reset();
+
+
         }
     }
 }
