@@ -113,7 +113,7 @@ namespace Cellular_Automaton_GUI
             for(int i = 0;  i < 100; i++)
             {
                 Button_Click_1(sender, e);
-                await Task.Delay(240);
+                await Task.Delay(100);
             }
         }
 
